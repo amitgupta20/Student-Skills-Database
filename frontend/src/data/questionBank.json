@@ -1,0 +1,292 @@
+[
+  {
+    "title": "Array",
+    "bank": [
+      {
+        "title": "Reverse the array",
+        "paragraph": "Write a program to reverse an array or string",
+        "link": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/ "
+      },
+      {
+        "title": "Find the maximum and minimum element in an array",
+        "paragraph": "Write a C function to return minimum and maximum in an array. Your program should make the minimum number of comparisons.",
+        "link": "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/"
+      },
+      {
+        "title": "Find the 'Kth' max and min element of an array ",
+        "paragraph": "Given an array arr[] and an integer K where K is smaller than size of array, the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct.",
+        "link": "https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1"
+      },
+      {
+        "title": "Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo",
+        "paragraph": "Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.",
+        "link": "https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1"
+      },
+      {
+        "title": "Move all the negative elements to one side of the array ",
+        "paragraph": "An array contains both positive and negative numbers in random order. Rearrange the array elements so that all negative numbers appear before all positive numbers.",
+        "link": "https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/"
+      },
+      {
+        "title": "Find the Union and Intersection of the two sorted arrays.",
+        "paragraph": "Given two arrays a[] and b[] of size n and m respectively. The task is to find union between these two arrays.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/union-of-two-arrays3538/1"
+      },
+      {
+        "title": "Write a program to cyclically rotate an array by one.",
+        "paragraph": "Given an array, rotate the array by one position in clock-wise direction        ",
+        "link": "https://practice.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1"
+      },
+      {
+        "title": "find Largest sum contiguous Subarray [V. IMP]",
+        "paragraph": "Given an array Arr[] of N integers. Find the contiguous sub-array(containing at least one number) which has the maximum sum and return its sum.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1"
+      },
+      {
+        "title": "Minimise the maximum difference between heights [V.IMP]",
+        "paragraph": "Given an array arr[] denoting heights of N towers and a positive integer K, you have to modify the height of each tower either by increasing or decreasing them by K only once. After modifying, height should be a non-negative integer.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1"
+      }
+    ]
+  },
+  {
+    "title": "Binary Search",
+    "bank": [
+      {
+        "title": "Reverse the array",
+        "paragraph": "Write a program to reverse an array or string",
+        "link": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/ "
+      },
+      {
+        "title": "Reverse the array",
+        "paragraph": "Write a program to reverse an array or string",
+        "link": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/ "
+      }
+    ]
+  },
+  {
+    "title": "Matrix",
+    "bank": [
+      {
+        "title": "Spiral traversal on a Matrix",
+        "paragraph": "Given a matrix of size r*c. Traverse the matrix in spiral form        ",
+        "link": "https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1 "
+      },
+      {
+        "title": "Search an element in a matriix",
+        "paragraph": "Search an element in a matriix",
+        "link": "https://leetcode.com/problems/search-a-2d-matrix/"
+      },
+      {
+        "title": "Find median in a row wise sorted matrix",
+        "paragraph": "Given a row wise sorted matrix of size RxC where R and C are always odd, find the median of the matrix        ",
+        "link": "https://practice.geeksforgeeks.org/problems/median-in-a-row-wise-sorted-matrix1527/1"
+      },
+      {
+        "title": "Find row with maximum no. of 1's",
+        "paragraph": "Given a boolean 2D array of n x m dimensions where each row is sorted. Find the 0-based index of the first row that has the maximum number of 1's.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/row-with-max-1s0023/1"
+      }
+    ]
+  },
+  {
+    "title": "String",
+    "bank": [
+      {
+        "title": "Reverse a String",
+        "paragraph": "Write a function that reverses a string. The input string is given as an array of characters s.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1 "
+      },
+      {
+        "title": "Check whether a String is Palindrome or not",
+        "paragraph": "Given a string S, check if it is palindrome or not.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/palindrome-string0817/1"
+      },
+      {
+        "title": "Find Duplicate characters in a string",
+        "paragraph": "Write an efficient program to print all the duplicates and their counts in the input string         ",
+        "link": "https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/"
+      },
+      {
+        "title": "Write a Code to check whether one string is a rotation of another",
+        "paragraph": "Given a string s1 and a string s2, write a snippet to say whether s2 is a rotation of s1?        ",
+        "link": "https://www.geeksforgeeks.org/a-program-to-check-if-strings-are-rotations-of-each-other/"
+      }
+    ]
+  },
+  {
+    "title": "Searching & Sorting",
+    "bank": [
+      {
+        "title": "Find first and last positions of an element in a sorted array",
+        "paragraph": "Given a sorted array arr containing n elements with possibly duplicate elements, the task is to find indexes of first and last occurrences of an element x in the given array.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/first-and-last-occurrences-of-x3116/1"
+      },
+      {
+        "title": "Find a Fixed Point (Value equal to index) in a given array",
+        "paragraph": "Given an array Arr of N positive integers. Your task is to find the elements whose value is equal to that of its index value ( Consider 1-based indexing ).        ",
+        "link": "https://practice.geeksforgeeks.org/problems/value-equal-to-index-value1330/1"
+      },
+      {
+        "title": "Search in a rotated sorted array",
+        "paragraph": "Search in a rotated sorted array",
+        "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+      },
+      {
+        "title": "square root of an integer",
+        "paragraph": "Consider a sample space S consisting of all perfect squares starting from 1, 4, 9 and so on. You are given a number N, you have to output the number of integers less than N in the sample space S.",
+        "link": "https://practice.geeksforgeeks.org/problems/count-squares3649/1"
+      }
+    ]
+  },
+  {
+    "title": "LinkedList",
+    "bank": [
+      {
+        "title": "Write a Program to reverse the Linked List. (Both Iterative and recursive)",
+        "paragraph": "Given pointer to the head node of a linked list, the task is to reverse the linked list. We need to reverse the list by changing the links between nodes.        ",
+        "link": "https://www.geeksforgeeks.org/reverse-a-linked-list/"
+      },
+      {
+        "title": "Reverse a Linked List in group of Given Size. [Very Imp]",
+        "paragraph": "Given a linked list of size N. The task is to reverse every k nodes (where k is an input to the function) in the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should be considered as a group and must be reversed (See Example 2 for clarification).        ",
+        "link": "https://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1"
+      },
+      {
+        "title": "Write a program to Detect loop in a linked list.",
+        "paragraph": "Given a linked list of N nodes. The task is to check if the linked list has a loop. Linked list can contain self loop.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1"
+      },
+      {
+        "title": "Write a program to Delete loop in a linked list.",
+        "paragraph": "Given a linked list of N nodes such that it may contain a loopA loop here means that the last node of the link list is connected to the node at position X. If the link list does not have any loop, X=0.Remove the loop from the linked list, if it is present. ",
+        "link": "https://practice.geeksforgeeks.org/problems/remove-loop-in-linked-list/1"
+      }
+    ]
+  },
+  {
+    "title": "Binary Trees    ",
+    "bank": [
+      {
+        "title": "level order traversal        ",
+        "paragraph": "Given a binary tree, find its level order traversal.Level order traversal of a tree is breadth-first traversal for the tree",
+        "link": "https://practice.geeksforgeeks.org/problems/level-order-traversal/1"
+      },
+      {
+        "title": "Reverse Level Order traversal        ",
+        "paragraph": "Given a binary tree of size N, find its reverse level order traversal. ie- the traversal must begin from the last level.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1"
+      },
+      {
+        "title": "Height of a tree        ",
+        "paragraph": "Given a binary tree, find its height.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1"
+      },
+      {
+        "title": "Diameter of a tree        ",
+        "paragraph": "The diameter of a tree (sometimes called the width) is the number of nodes on the longest path between two end nodes. The diagram below shows two trees each with diameter nine, the leaves that form the ends of the longest path are shaded (note that there is more than one path in each tree of length nine, but no path longer than nine nodes).         ",
+        "link": "https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1"
+      }
+    ]
+  },
+  {
+    "title": "Binary Search Trees    ",
+    "bank": [
+      {
+        "title": "Find a value in a BST        ",
+        "paragraph": "Find a value in a BST",
+        "link": "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/"
+      },
+      {
+        "title": "Deletion of a node in a BST        ",
+        "paragraph": "Deletion of a node in a BST ",
+        "link": "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/"
+      },
+      {
+        "title": "Find min and max value in a BST        ",
+        "paragraph": "Given a Binary Search Tree. The task is to find the minimum element in this given BST.        ",
+        "link": "Find min and max value in a BST        "
+      },
+      {
+        "title": "Find inorder successor and inorder predecessor in a BST        ",
+        "paragraph": "There is BST given with root node with key part as integer only. You need to find the inorder successor and predecessor of a given key. In case, if the either of predecessor or successor is not found print -1.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1"
+      }
+    ]
+  },
+  {
+    "title": "Greedy    ",
+    "bank": [
+      {
+        "title": "Activity Selection Problem        ",
+        "paragraph": "There is one meeting room in a firm. There are N meetings in the form of (start[i], end[i]) where start[i] is start time of meeting i and end[i] is finish time of meeting i.What is the maximum number of meetings that can be accommodated in the meeting room when only one meeting can be held in the meeting room at a particular time?",
+        "link": "https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1"
+      },
+      {
+        "title": "Job SequencingProblem        ",
+        "paragraph": "Given a set of N jobs where each jobi has a deadline and profit associated with it.Each job takes 1 unit of time to complete and only one job can be scheduled at a time. We earn the profit associated with job if and only if the job is completed by its deadline.Find the number of jobs done and the maximum profit.",
+        "link": "https://practice.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1"
+      },
+      {
+        "title": "Huffman Coding        ",
+        "paragraph": "Note: While merging if two nodes have the same value, then the node which occurs at first will be taken on the left of Binary Tree and the other one to the right, otherwise Node with less value will be taken on the left of the subtree and other one to the right.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/huffman-encoding3345/1 "
+      },
+      {
+        "title": "Water Connection Problem        ",
+        "paragraph": "",
+        "link": "https://practice.geeksforgeeks.org/problems/water-connection-problem5822/1"
+      }
+    ]
+  },
+  {
+    "title": "BackTracking    ",
+    "bank": [
+      {
+        "title": "Rat in a maze Problem        ",
+        "paragraph": "Consider a rat placed at (0, 0) in a square matrix of order N * N. It has to reach the destination at (N - 1, N - 1). Find all possible paths that the rat can take to reach from source to destination. The directions in which the rat can move are 'U'(up), 'D'(down), 'L' (left), 'R' (right). Value 0 at a cell in the matrix represents that it is blocked and rat cannot move to it while value 1 at a cell in the matrix represents that rat can be travel through it.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1"
+      },
+      {
+        "title": "Printing all solutions in N-Queen Problem        ",
+        "paragraph": "",
+        "link": "https://www.geeksforgeeks.org/printing-solutions-n-queen-problem/"
+      },
+      {
+        "title": "Word Break Problem using Backtracking        ",
+        "paragraph": "Given a string s and a dictionary of words dict of length n, add spaces in s to construct a sentence where each word is a valid dictionary word. Each dictionary word can be used more than once. Return all such possible sentences.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/word-break-part-23249/1"
+      },
+      {
+        "title": "Remove Invalid Parentheses        ",
+        "paragraph": "Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.        ",
+        "link": "https://leetcode.com/problems/remove-invalid-parentheses/"
+      }
+    ]
+  },
+  {
+    "title": "Stacks & Queues    ",
+    "bank": [
+      {
+        "title": " Implement Stack from Scratch        ",
+        "paragraph": "Implement Stack from Scratch",
+        "link": "https://www.tutorialspoint.com/javaexamples/data_stack.htm"
+      },
+      {
+        "title": " Implement Queue from Scratch        ",
+        "paragraph": "Implement Queue from Scratch",
+        "link": "https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/"
+      },
+      {
+        "title": "Implement 2 stack in an array        ",
+        "paragraph": "Your task is to implement  2 stacks in one array efficiently.        ",
+        "link": "https://practice.geeksforgeeks.org/problems/implement-two-stacks-in-an-array/1"
+      },
+      {
+        "title": "find the middle element of a stack        ",
+        "paragraph": "",
+        "link": "https://www.geeksforgeeks.org/design-a-stack-with-find-middle-operation/"
+      }
+    ]
+  }
+]
