@@ -12,7 +12,15 @@ const ContestCalender = ({ username }) => {
   useEffect(() => {
     axios.get("http://localhost:2000/contest/CodeForces").then((contest) => {
       //  console.log(contest.data);
-      setCodeforcesContest(contest.data);
+      let data = contest.data;
+      let n = data.length;
+      for(let i = 0; i < n; i++)
+      {
+        let time = new Date(data[i].startTimeSeconds * 1000);
+        data[i].time = ""+time;
+      }
+      setCodeforcesContest(data);
+
       // console.log(contest.data);
       // console.log("data ",location.state);
     });
@@ -30,13 +38,14 @@ const ContestCalender = ({ username }) => {
           ) : codeforcesContest.length !== 0 ? (
             codeforcesContest.map((problem, index) => (
               <Collapsible key={index + "1"} trigger={problem.name}>
+                <p key={index + "3"} className="questionsHead">
+                    Date : {problem.time}
+                  </p>
                 <a
                   key={index + "2"}
                   href={`https://codeforces.com/contests/${problem.id}`}
                 >
-                  <p key={index + "3"} className="questionsHead">
-                    Date :
-                  </p>
+                  
                   <button
                     key={index + "4"}
                     className="form-control btn-success "

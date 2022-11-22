@@ -16,7 +16,7 @@ const streakSchema = new mongoose.Schema({
         default: 0,
     },
     lastSubmission: {
-        type : Date,
+        type : String,
     }
 })
 const Streak = new mongoose.model("Streak",streakSchema);

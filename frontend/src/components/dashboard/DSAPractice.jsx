@@ -45,6 +45,7 @@ const DSAPractice = (props) => {
                   <a
                     key={index + "5"}
                     className="questionsHead"
+                    target="_blank"
                     href={problem.link}
                   >
                     <button

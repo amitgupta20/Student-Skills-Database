@@ -1,88 +1,64 @@
 import React, { useEffect, useState } from "react";
-import Collapsible from "react-collapsible";
-import QuestionBank from "../../data/daily.json";
-import { Navbar } from "../../Navbar";
+import axios from "axios";
 import { DashboardNavigation } from "../DashboardNavigation";
-//import Question from './Question';
-// import {QuestionBank} from './questionBank.json'
 import "../styles/dsa.scss";
 
-function msToTime(s) {
-  // Pad to 2 or 3 digits, default is 2
-  function pad(n, z) {
-    z = z || 2;
-    return ("00" + n).slice(-z);
-  }
-
-  var ms = s % 1000;
-  s = (s - ms) / 1000;
-  var secs = s % 60;
-  s = (s - secs) / 60;
-  var mins = s % 60;
-  var hrs = (s - mins) / 60;
-
-  return pad(hrs) + ":" + pad(mins) + ":" + pad(secs) + "." + pad(ms, 3);
-}
-
 const DailyProblems = (props) => {
-  const [questionBank, setQuestionBank] = useState();
-
+  const [dailyQuestion, setDailyQuestion] = useState(null);
+  const [submissionStatus, setSubmissionStatus] = useState(false);
+  const [userName, setUserName] = useState(null);
+  const [todays, setTodays] = useState(null);
+  let updateSubmission = async () => {
+    let { data } = await axios.post(
+      "http://localhost:2000/contest/checkProblemSubmissionStatus",
+      {
+        userName: "amitgupta20",
+        contestId: dailyQuestion.contestId,
+        index: dailyQuestion.index,
+      }
+    );
+    console.log(data);
+    setSubmissionStatus(data);
+  };
   useEffect(() => {
-    setQuestionBank(QuestionBank);
+    axios
+      .get("http://localhost:2000/contest/getDailyQuestions")
+      .then(({ data }) => {
+        let dd = new Date();
+        setTodays("" + dd);
+        setDailyQuestion(data);
+        console.log(dailyQuestion);
+      });
   }, []);
 
   return (
-    <div id="profileContainer">
+    <div id="profileContainer" className="coding-div">
       <DashboardNavigation username={props.username || "My Account"} />
       <div className="container">
         <div className="emp-profile">
-          <h1 className="head">Daily Problems</h1>
+          <h1 className="head">Daily Problem</h1>
           <hr className="line-practice-head"></hr>
-
-          {QuestionBank.map((_pops, index) => (
-            <div className="tagsGroup">
-              {/* <h2 key={index} className="innerHeading">
-                {_pops.title}
-              </h2> */}
-
-              {_pops.bank.map((problem, index) => (
-                <div>
-                  {Date.now() > problem.date &&
-                  Date.now() < problem.date + 86400000 ? (
-                    <div>
-                      <h2> TODAY'S PROBLEM </h2>
-                      <Collapsible key={index} trigger={problem.title}>
-                        <a
-                          key={index}
-                          className="questionsHead"
-                          href={problem.link}
-                        >
-                          <button className="form-control btn-success ">
-                            Proceed to problem
-                          </button>
-                        </a>
-                      </Collapsible>
-                      <h2> OLDER PROBLEMS </h2>
-                    </div>
-                  ) : Date.now() > problem.date ? (
-                    <div>
-                      <Collapsible key={index} trigger={problem.title}>
-                        <a
-                          key={index}
-                          className="questionsHead"
-                          href={problem.link}
-                        >
-                          <button className="form-control btn-success ">
-                            Proceed to problem
-                          </button>
-                        </a>
-                      </Collapsible>
-                    </div>
-                  ) : null}
-                </div>
-              ))}
+          <p className="text-center tdate">{todays ? todays : ""}</p>
+          {dailyQuestion && (
+            <div className="problem-div">
+              <p>{dailyQuestion.name}</p>
+              <a target="_blank" href={dailyQuestion.link}>
+                <button className="gtproblem">Go to Problem</button>
+              </a>
+              {submissionStatus ? (
+                <button disabled className="btn-success">
+                  Solved
+                </button>
+              ) : (
+                <button
+                  className="btn-warning"
+                  onClick={() => updateSubmission()}
+                >
+                  Check Submission
+                </button>
+              )}
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>

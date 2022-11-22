@@ -241,8 +241,8 @@ const DoubtBlogs = (props) => {
                                   : "Show Post"}
                               </button>
                             </div>
-                            <p className="date-posts">
-                            key={index + "11"}
+                            <p className="date-posts" key={index + "11"}>
+                            
                               {formatDate(post.time)}
                             </p>
                           </div>

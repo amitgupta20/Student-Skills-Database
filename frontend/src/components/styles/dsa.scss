@@ -46,6 +46,32 @@ $breakpointMed: 767px;
     color: rgb(88, 84, 84);
   }
 }
+.problem-div{
+  background: linear-gradient(to right, #7583fa 0%, #5ca9fb 100%);
+  color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+.problem-div button{
+  font-size: medium;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.tdate{
+  font-size: large;
+}
+.problem-div p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.problem-div .gtproblem {
+  
+  background: linear-gradient(to right, rgb(135, 230, 135) 0%, #e8db46 100%);
+  
+}
 //The content within the collaspable area
 .Collapsible__contentInner {
   padding: 10px;
