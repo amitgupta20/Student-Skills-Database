@@ -23,7 +23,7 @@ const Profile = (props) => {
   const [totalProjects, settotalProjects] = useState(0);
   const [totalExpereince, settotalExpereince] = useState(0);
   const [doubtsSolved, setDoubtsSolved] = useState(0);
-
+  
   useEffect(() => {
     axios
       .post("http://localhost:2000/student/getStudentData", {

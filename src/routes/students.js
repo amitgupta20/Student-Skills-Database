@@ -6,6 +6,7 @@ const studentRouter = express.Router();
 const PersonalDetail = require("../models/personalDetail");
 const Post = require("../models/post");
 const Review = require("../models/reviews");
+const jwt = require("jsonwebtoken");
 const PendingDetail = require("../models/pendingDetails");
 const { v4: uuidv4 } = require("uuid");
 
@@ -94,6 +95,22 @@ studentRouter.post(`/upVote`, async (req, res) => {
 //     res.json({ message: e.message });
 //   }
 // });
+studentRouter.get("/getCodingProfiles", async (req, res) => {
+  const token = req.cookies.jwt;
+  if (token === undefined) return res.send("NA");
+  const verifyToken = await jwt.verify(token, process.env.SECRET_KEY);
+  let data = await User.findOne({ _id: verifyToken._id });
+
+  if (data.accountType != "Student") return res.send("NA");
+  let userData = await PersonalDetail.findOne({ email: data.email });
+
+  let responce = {
+    codeforces: userData.codeforces,
+    codechef: userData.codechef,
+    leetcode: userData.leetcode,
+  };
+  return res.send(responce);
+});
 
 studentRouter.post(`/getMyPosts`, async (req, res) => {
   // console.log(req.body.pId);
@@ -232,8 +249,8 @@ studentRouter.post("/filterProfiles", async (req, res) => {
     // console.log(skill);
     // let
     // console.log(Boolean(req.body.country));
-    if(req.body.email){
-      data = await User.find({email : req.body.email , accountType : "Student"});
+    if (req.body.email) {
+      data = await User.find({ email: req.body.email, accountType: "Student" });
       return res.send(data);
     }
     if (req.body.country && req.body.state && req.body.city)
@@ -261,7 +278,12 @@ studentRouter.post("/filterProfiles", async (req, res) => {
         );
         // console.log(data);
       }
-    } else if (!req.body.country && !req.body.state && !req.body.city && skill.length > 0) {
+    } else if (
+      !req.body.country &&
+      !req.body.state &&
+      !req.body.city &&
+      skill.length > 0
+    ) {
       data = await PersonalDetail.find({});
       const filterskill = new Set(skill);
       data = data.filter((student) =>

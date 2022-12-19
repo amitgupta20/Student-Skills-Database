@@ -5,6 +5,7 @@ const {
   getUserDataCodeforces,
   getRandomQuestions,
   checkProblemSubmissionStatus,
+  get,
 } = require("../api/codeforces");
 const { getUserDataCodechef } = require("../api/codechef");
 const { getUserDataLeetcode } = require("../api/leetcode");
@@ -16,22 +17,20 @@ contestRouter.post("/CodeForces/getUserData", getUserDataCodeforces);
 contestRouter.post("/Codechef/getUserData", getUserDataCodechef);
 contestRouter.post("/Leetcode/getUserData", getUserDataLeetcode);
 
-function getDateArray(date){
+function getDateArray(date) {
   let dateIdx = date.indexOf("/");
-  let tdate = date.slice(0,dateIdx);
-  let monthIdx = date.indexOf("/",dateIdx+1);
-  let month = date.slice(dateIdx+1,monthIdx);
-  let year = date.slice(monthIdx+1);
-  return [tdate,month,year];
+  let tdate = date.slice(0, dateIdx);
+  let monthIdx = date.indexOf("/", dateIdx + 1);
+  let month = date.slice(dateIdx + 1, monthIdx);
+  let year = date.slice(monthIdx + 1);
+  return [tdate, month, year];
 }
+
 function compareDate(date) {
   let today = new Date();
-  
-  let incoming = getDateArray(date);
+  date = new Date(date);
+  let incoming = getDateArray(date.toLocaleDateString());
   let todayArr = getDateArray(today.toLocaleDateString());
-  console.log(incoming);
-  console.log(todayArr);
-
 
   if (
     incoming[0] !== todayArr[0] ||
@@ -44,7 +43,7 @@ function compareDate(date) {
 
 contestRouter.get("/getDailyQuestions", async (req, res) => {
   let question = await DailyQuestions.find().sort({ time: -1 }).limit(1);
-  
+
   if (question.length === 0) {
     let random = await getRandomQuestions();
     // console.log(random);
@@ -54,7 +53,6 @@ contestRouter.get("/getDailyQuestions", async (req, res) => {
   } else {
     let date = question[0].time;
     let resp = compareDate(date);
-    // console.log(resp);
     if (!resp) {
       let random = await getRandomQuestions();
       let dailyQuestion = new DailyQuestions(random);

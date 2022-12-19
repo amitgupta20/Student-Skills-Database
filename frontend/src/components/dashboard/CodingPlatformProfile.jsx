@@ -20,7 +20,6 @@ const CodingPlatformProfile = (props) => {
         email: props.email,
       })
       .then(({ data }) => {
-        // console.log(data);
         if (data) {
           setCodeforcesHandle(data.codeforces);
           setLeetcodeHandle(data.leetcode);
@@ -31,22 +30,6 @@ const CodingPlatformProfile = (props) => {
           setCodechefHandle("");
         }
       });
-    // axios
-    //   .post("http://localhost:2000/student/getStudentData", {
-    //     email: props.email,
-    //   })
-    //   .then(({ data }) => {
-    //     //  console.log(data.leetcode);
-    //     setLeetcodeHandle(data.leetcode);
-    //   });
-    // axios
-    //   .post("http://localhost:2000/student/getStudentData", {
-    //     email: props.email,
-    //   })
-    //   .then(({ data }) => {
-    //     // console.log(data);
-    //     setCodechefHandle(data.codechef);
-    //   });
   }, [props.email]);
   useEffect(() => {
     if (codeforcesHandle !== "loading" && codeforcesHandle !== "") {
@@ -67,6 +50,7 @@ const CodingPlatformProfile = (props) => {
           email: props.email,
         })
         .then((details) => {
+          console.log(details.data);
           if (details.data === "Failed") setCodechef([]);
           else setCodechef(details.data);
         });
@@ -177,7 +161,7 @@ const CodingPlatformProfile = (props) => {
                               Username :{" "}
                             </p>
                             <p className="coding-profile-data-head">
-                              {codechef[2].slice(0,11)}
+                              {codechefHandle.slice(0,11)}
                             </p>
                           </div>
                           <div className="coding-profile-data">

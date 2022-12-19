@@ -1,29 +1,50 @@
 const axios = require("axios");
+const { spawn } = require("child_process");
 const CodingProfile = require("../models/codingProfile");
+let platformScraping = async function (userName, platform) {
+  let resultString = "";
+  let resultData = "F";
+
+  let platformChild = spawn("python", [
+    `src/webScraping/codechef.py`,
+    `${userName}`,
+    `${platform}`,
+  ]);
+
+  platformChild.stdout.on("data", async (data) => {
+    resultString += data.toString();
+    resultData = JSON.parse(resultString);
+    // console.log(resultData);
+  });
+  platformChild.stderr.on("data", (data) => {
+    console.log("ERROR ", "" + data);
+  });
+  await new Promise((resolve) => {
+    platformChild.on("close", resolve);
+  });
+  return resultData;
+};
 exports.getUserDataCodechef = async function (req, res) {
   try {
-    const url = `https://competitive-coding-api.herokuapp.com/api/codechef/${req.body.userHandle}`;
-    const responce = await axios.get(url);
-    if (!responce) return res.send({ data: "Failed" });
-    const { highest_rating, rating, global_rank } = responce.data;
-    const { username } = responce.data.user_details;
-    const { count } = responce.data.fully_solved;
-    
-    const detail = [highest_rating, rating, username, count];
-    if (detail.length === 4)
-      await CodingProfile.updateOne(
-        { email: req.body.email },
-        {
-          $set: {
-            codechefRating: rating,
-            codechefMaxRating: highest_rating,
-            codechefQuestion: count,
-          },
-        }
-      );
-    // console.log(detail);
-
-    res.send(detail);
+    let data = await platformScraping(req.body.userHandle, "codechef");
+    // console.log("SCRAP ", data);
+    let result = [
+      data.highest_rating,
+      data.rating,
+      req.body.userHandle,
+      data.fully_solved,
+    ];
+    await CodingProfile.updateOne(
+      { email: req.body.email },
+      {
+        $set: {
+          codechefRating: result[1],
+          codechefQuestion: result[3],
+          codechefMaxRating: result[0],
+        },
+      }
+    );
+    res.send(result);
   } catch (error) {
     console.log("ERROR");
     return res.send("Failed");

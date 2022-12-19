@@ -9,27 +9,38 @@ const DailyProblems = (props) => {
   const [userName, setUserName] = useState(null);
   const [todays, setTodays] = useState(null);
   let updateSubmission = async () => {
-    let { data } = await axios.post(
-      "http://localhost:2000/contest/checkProblemSubmissionStatus",
-      {
-        userName: "amitgupta20",
-        contestId: dailyQuestion.contestId,
-        index: dailyQuestion.index,
-      }
-    );
-    console.log(data);
-    setSubmissionStatus(data);
+    if (dailyQuestion) {
+      let { data } = await axios.post(
+        "http://localhost:2000/contest/checkProblemSubmissionStatus",
+        {
+          userName: userName,
+          contestId: dailyQuestion.contestId,
+          index: dailyQuestion.index,
+        }
+      );
+      console.log(data);
+      setSubmissionStatus(data);
+    }
   };
   useEffect(() => {
+    axios
+      .get("http://localhost:2000/student/getCodingProfiles")
+      .then(({ data }) => {
+        console.log("USERNAME ", data);
+        if (data !== "NA") setUserName(data.codeforces);
+      });
     axios
       .get("http://localhost:2000/contest/getDailyQuestions")
       .then(({ data }) => {
         let dd = new Date();
         setTodays("" + dd);
         setDailyQuestion(data);
-        console.log(dailyQuestion);
+        console.log("effect");
       });
   }, []);
+  useEffect(() => {
+    if (userName) updateSubmission();
+  }, [dailyQuestion, userName]);
 
   return (
     <div id="profileContainer" className="coding-div">
@@ -38,6 +49,15 @@ const DailyProblems = (props) => {
         <div className="emp-profile">
           <h1 className="head">Daily Problem</h1>
           <hr className="line-practice-head"></hr>
+          {userName ? (
+            <p className="text-center tdate">
+              Welcome,<b> {userName} </b>
+            </p>
+          ) : (
+            <p className="text-center tdate">
+              Add Codeforces Username for streak!
+            </p>
+          )}
           <p className="text-center tdate">{todays ? todays : ""}</p>
           {dailyQuestion && (
             <div className="problem-div">
@@ -50,12 +70,19 @@ const DailyProblems = (props) => {
                   Solved
                 </button>
               ) : (
-                <button
-                  className="btn-warning"
-                  onClick={() => updateSubmission()}
-                >
-                  Check Submission
-                </button>
+                userName && (
+                  <>
+                    <button
+                      className="btn-warning"
+                      onClick={() => updateSubmission()}
+                    >
+                      Check Submission
+                    </button>
+                    <button disabled className="btn-danger">
+                      Unsolved
+                    </button>
+                  </>
+                )
               )}
             </div>
           )}
