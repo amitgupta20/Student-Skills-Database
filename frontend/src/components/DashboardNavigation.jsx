@@ -41,42 +41,7 @@ export const DashboardNavigation = (props) => {
         >
           {!props.loginpg ? (
             <ul className="nav navbar-nav navbar-right">
-              {/* <li>
-              <a href='#features' className='page-scroll'>
-                Features
-              </a>
-            </li>*/}
-
-              {/* <li>
-                <a href="#about" className="page-scroll">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="page-scroll">
-                  Project
-                </a>
-              </li> */}
-              {/* <li>
-              <a href='#portfolio' className='page-scroll'>
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a href='#testimonials' className='page-scroll'>
-                Testimonials
-              </a>
-            </li> */}
-              {/* <li>
-                <a href="#team" className="page-scroll">
-                  Coding Profiles
-                </a>
-              </li> */}
-              {/* <li>
-                <a href="#contact" className="page-scroll">
-                  Contact
-                </a>
-              </li> */}
+              
               <li>
                 {props.username ? (
                   <div className="dropdown navdropdown">
@@ -91,21 +56,51 @@ export const DashboardNavigation = (props) => {
                     <ul className="dropdown-menu">
                       <li>
                         {" "}
-                        <Link to="/DSAPractice" className="dropdown-item">
+                        {/* <Link to="/DSAPractice" className="dropdown-item">
                           DSA practice
-                        </Link>
+                        </Link> */}
+                         <button
+                          className="dropdown-item dropbtn"
+                          onClick={() => {
+                            navigate("/DSAPractice", {
+                              state: location.state,
+                            });
+                          }}
+                        >
+                          DSA practice
+                        </button>
                       </li>
                       <li>
                         {" "}
-                        <Link to="/DailyProblems" className="dropdown-item">
+                        {/* <Link to="/DailyProblems" className="dropdown-item">
                           Daily problems
-                        </Link>
+                        </Link> */}
+                         <button
+                          className="dropdown-item dropbtn"
+                          onClick={() => {
+                            navigate("/DailyProblems", {
+                              state: location.state,
+                            });
+                          }}
+                        >
+                          Daily problems
+                        </button>
                       </li>
                       <li>
                         {" "}
-                        <Link to="/ContestCalender" className="dropdown-item">
+                        {/* <Link to="/ContestCalender" className="dropdown-item">
                           Calender
-                        </Link>
+                        </Link> */}
+                         <button
+                          className="dropdown-item dropbtn"
+                          onClick={() => {
+                            navigate("/ContestCalender", {
+                              state: location.state,
+                            });
+                          }}
+                        >
+                          Calender
+                        </button>
                       </li>
 
                       {location.state && (

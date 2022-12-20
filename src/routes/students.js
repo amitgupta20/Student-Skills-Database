@@ -17,7 +17,7 @@ studentRouter.post("/createPost", async (req, res) => {
     const post = new Post({
       email: req.body.post.email,
       content: req.body.post.content,
-      time: Date.now(),
+      time: Date.now(), 
       pId: uuidv4(),
     });
     await post.save();
