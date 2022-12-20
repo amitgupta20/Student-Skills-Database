@@ -1,3 +1,3 @@
 /node_modules
-
+/src/webScraping/__pycache__
 .env
