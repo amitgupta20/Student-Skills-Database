@@ -81,7 +81,7 @@ const DoubtBlogs = (props) => {
         setPosts(postss);
         //  setPosts(posts);
       });
-    console.log(posts);
+    // console.log(posts);
     setComments([]);
   };
   const getCommentById = (id) => {

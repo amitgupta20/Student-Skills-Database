@@ -180,7 +180,7 @@ studentRouter.post("/confirmedEditProfile", async (req, res) => {
     await PersonalDetail.deleteMany({ email: req.body.email });
     let userData = await PendingDetail.findOne({ email: req.body.email });
     if (!userData) {
-      console.log("User Doesn't exists");
+      // console.log("User Doesn't exists");
       return res.status(200).send("User Doesn't Exists");
     }
     // userData = userData.data;

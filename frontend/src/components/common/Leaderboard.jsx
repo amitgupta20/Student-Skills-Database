@@ -12,7 +12,7 @@ const Leaderboard = (props) => {
     axios
       .get("http://localhost:2000/users/getCodingProfile")
       .then(({ data }) => {
-        console.log(data);
+        // console.log(data);
         let data1 = data;
         data1.sort(function (x, y) {
           return (

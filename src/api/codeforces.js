@@ -36,7 +36,6 @@ exports.getUpcomingContest = async function (req, res) {
   const url = `https://codeforces.com/api/contest.list?gym=false`;
   const { data } = await axios.get(url);
   const result = data.result.filter((contest) => contest.phase === "BEFORE");
-  console.log(result[2]);
 
   result.reverse();
   res.send(result);
@@ -110,7 +109,7 @@ async function updateStreak(email) {
       );
     }
   } else {
-    console.log("OUT HERE");
+    // console.log("OUT HERE");
     let today = new Date();
     today.setDate(today.getDate() + 1);
     let data = {

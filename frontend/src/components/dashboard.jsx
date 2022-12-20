@@ -17,7 +17,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 export default function Dashboard(props) {
   axios.defaults.withCredentials = true;
-  console.log(props);
+  // console.log(props);
   const params = useParams();
   const location = useLocation();
 

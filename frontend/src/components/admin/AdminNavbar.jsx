@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../../authentication/auth";
 export const AdminNavbar = (props) => {
+  const auth = useAuth();
   let navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const handleLogOut = (e) => {
@@ -8,6 +10,7 @@ export const AdminNavbar = (props) => {
     axios.get("http://localhost:2000/users/logout").then((response) => {
       // write here the page to load when logout
       //   console.log(props);
+      auth.logout();
       navigate("/signUp");
     });
   };

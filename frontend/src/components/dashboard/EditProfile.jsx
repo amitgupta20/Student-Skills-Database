@@ -242,7 +242,7 @@ const EditProfile = ({ status, email , pending ,username}) => {
       let experience = experienceList.filter((val) => val.organizationName.length > 0);
       let project = projectList.filter((val) => val.projectName.length > 0);
       let links = linkList.filter((val) => val.linkName.length > 0);
-      console.log(project);
+      // console.log(project);
       // await setEducationList(education);
       // await setExperienceList(experience);
       // await setProjectList(project);
@@ -254,7 +254,7 @@ const EditProfile = ({ status, email , pending ,username}) => {
       fullDetails["educationList"] = JSON.stringify(education);
       fullDetails["experienceList"] = JSON.stringify(experience);
       fullDetails["projectList"] = JSON.stringify(project);
-      console.log(fullDetails);
+      // console.log(fullDetails);
       const responce = await axios.post(
         "http://localhost:2000/student/editProfile",
         fullDetails

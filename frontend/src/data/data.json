@@ -1,10 +1,10 @@
 {
   "Header": {
     "title": "Level Up",
-    "paragraph": "A student skills Database to Level up their Skills."
+    "paragraph": "A Platform for students to Level up their Skills."
   },
   "About": {
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paragraph": "Purpose of the project is to create a platform which shows student profiles which will contain their competitive profiles , projects , skills and more . This platform will also evaluate a score based on the competitive profiles and project works which will be reflected in the top performers list.",
     "Why": [
       "Lorem ipsum dolor",
       "Tempor incididunt",
@@ -137,7 +137,7 @@
       "role": "(Developer)"
     },
     {
-      "img": "img/team/02.jpg",
+      "img": "img/team/02-1.jpg",
       "name": "Naresh Kumawat",
       "job": "19ucs046@lnmiit.ac.in",
       "role": "(Developer)"
@@ -146,7 +146,7 @@
       "img": "img/team/03.jpg",
       "name": "Roshan Kumar",
       "job": "19ucs178@lnmiit.ac.in",
-      "role" : "(Content Writer)"
+      "role": "(Content Writer)"
     }
   ],
   "Contact": {

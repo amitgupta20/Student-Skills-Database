@@ -6,9 +6,11 @@ import "../styles/dsa.scss";
 const DailyProblems = (props) => {
   const [dailyQuestion, setDailyQuestion] = useState(null);
   const [submissionStatus, setSubmissionStatus] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState(null);
   const [todays, setTodays] = useState(null);
   let updateSubmission = async () => {
+    setLoading(true)
     if (dailyQuestion) {
       let { data } = await axios.post(
         "http://localhost:2000/contest/checkProblemSubmissionStatus",
@@ -18,15 +20,16 @@ const DailyProblems = (props) => {
           index: dailyQuestion.index,
         }
       );
-      console.log(data);
+      // console.log(data);
       setSubmissionStatus(data);
     }
+    setLoading(false)
   };
   useEffect(() => {
     axios
       .get("http://localhost:2000/student/getCodingProfiles")
       .then(({ data }) => {
-        console.log("USERNAME ", data);
+        // console.log("USERNAME ", data);
         if (data !== "NA") setUserName(data.codeforces);
       });
     axios
@@ -35,7 +38,7 @@ const DailyProblems = (props) => {
         let dd = new Date();
         setTodays("" + dd);
         setDailyQuestion(data);
-        console.log("effect");
+        // console.log("effect");
       });
   }, []);
   useEffect(() => {
@@ -76,11 +79,11 @@ const DailyProblems = (props) => {
                       className="btn-warning"
                       onClick={() => updateSubmission()}
                     >
-                      Check Submission
+                     { loading ? "Loading.." : "Check Submission"}
                     </button>
-                    <button disabled className="btn-danger">
+                    {!loading && <button disabled className="btn-danger">
                       Unsolved
-                    </button>
+                    </button>}
                   </>
                 )
               )}

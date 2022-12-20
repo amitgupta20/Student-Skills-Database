@@ -6,7 +6,7 @@ import google from "../../assets/images/google.svg";
 import linkedin from "../../assets/images/linkedin.svg";
 import { useState } from "react";
 import { Navigation } from "../navigation";
-
+import { useAuth } from "../../authentication/auth";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -14,6 +14,7 @@ import axios from "axios";
 function Login(props) {
   axios.defaults.withCredentials = true;
   let navigate = useNavigate();
+  const auth = useAuth();
   const [login, setlogin] = useState(false);
   const [otpStatus, setOtpStatus] = useState(false);
   const [forgotPassword, setForgotPassword] = useState("initial");
@@ -70,7 +71,7 @@ function Login(props) {
     axios
       .post("http://localhost:2000/users/sendOTP", {email : email})
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.data === 'F') setEmailValid(false);
         else setForgotPassword("SecondClick");
       });
@@ -118,12 +119,13 @@ function Login(props) {
           const userData = response.data.user;
           setLoginStatus("True");
           // console.log(userData);
-
+          auth.login(userData.accountType)
           if (userData.accountType === "Student")
             navigate("/dashboard", { state: userData });
           else if (userData.accountType === "Team")
-          navigate("/admin", { state: userData });
+            navigate("/admin", { state: userData });
           else navigate("/recruiter", { state: userData });
+          
         } else if (response.data.Status === "F") {
           setLoginStatus("False");
         }

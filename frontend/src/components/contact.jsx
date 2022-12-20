@@ -29,7 +29,7 @@ export const Contact = (props) => {
         message
       })
       .then(() => {
-        console.log("sent");
+        // console.log("sent");
         
       });
       clearState();

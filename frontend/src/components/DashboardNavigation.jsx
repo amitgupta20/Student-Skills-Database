@@ -1,14 +1,18 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../authentication/auth";
 import axios from "axios";
 export const DashboardNavigation = (props) => {
+  const auth = useAuth();
   let navigate = useNavigate();
   let location = useLocation();
   axios.defaults.withCredentials = true;
   const handleLogOut = (e) => {
     e.preventDefault();
+    
     axios.get("http://localhost:2000/users/logout").then((response) => {
       // write here the page to load when logout
       // console.log(props);
+      auth.logout();
       navigate("/signUp");
     });
   };

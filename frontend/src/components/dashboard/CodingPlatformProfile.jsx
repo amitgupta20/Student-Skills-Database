@@ -50,7 +50,7 @@ const CodingPlatformProfile = (props) => {
           email: props.email,
         })
         .then((details) => {
-          console.log(details.data);
+          // console.log(details.data);
           if (details.data === "Failed") setCodechef([]);
           else setCodechef(details.data);
         });
@@ -62,7 +62,7 @@ const CodingPlatformProfile = (props) => {
           email: props.email,
         })
         .then((details) => {
-          console.log(details.data)
+          // console.log(details.data)
           if (details.data === "Failed") setLeetcode([]);
           else setLeetcode(details.data);
         });
