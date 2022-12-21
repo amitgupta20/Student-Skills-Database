@@ -16,9 +16,7 @@ const CodingPlatformProfile = (props) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:2000/student/getStudentData", {
-        email: props.email,
-      })
+      .get("http://localhost:2000/student/getCodingProfiles")
       .then(({ data }) => {
         if (data) {
           setCodeforcesHandle(data.codeforces);

@@ -7,6 +7,7 @@ const {
   deleteAccount,
 } = require("../methods/users");
 const Otp = require("../models/otpVerification");
+const Streak = require("../models/streak");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
@@ -515,4 +516,13 @@ userRouter.get("/getCodingProfile", async (req, res) => {
     return res.send([]);
   }
 });
+
+userRouter.get("/getCodingStreak", async(req,res) => {
+  try {
+    const data = await Streak.find();
+    return res.send(data);
+  } catch (error) {
+    return res.send([]);
+  }
+})
 module.exports = userRouter;

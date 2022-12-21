@@ -7,6 +7,7 @@ const Leaderboard = (props) => {
   const [codingData, setCodingData] = useState([]);
   const [searchCount, setsearchCount] = useState(1);
   const [searchCriteria, setSearchCriteria] = useState("Overall");
+  const [streakData, setStreakData] = useState([]);
   //   const [fetchStatus, setFetchStatus] = useState("Enter Filter");
   useEffect(() => {
     axios
@@ -27,45 +28,14 @@ const Leaderboard = (props) => {
         setCodingData(data1);
       });
   }, []);
-  // const changeArray = () => {
-  //   if (searchCriteria === "Overall") {
-  //     let data = codingData;
-  //     data.sort(function (x, y) {
-  //       return (
-  //         0.4 * y.codechefRating +
-  //         0.3 * y.codeforcesRating +
-  //         0.2 * y.leetcodeQuestion -
-  //         (0.4 * x.codechefRating +
-  //           0.3 * x.codeforcesRating +
-  //           0.2 * x.leetcodeQuestion)
-  //       );
-  //     });
-
-  //     setCodingData(data);
-  //   } else if (searchCriteria === "LeetCode") {
-  //     let data = codingData;
-  //     data.sort(function (x, y) {
-  //       return y.leetcodeQuestion - x.leetcodeQuestion;
-  //     });
-  //     console.log(data);
-  //     setCodingData(data);
-  //   } else if (searchCriteria === "CodeChef") {
-  //     let data = codingData;
-  //     data.sort(function (x, y) {
-  //       return y.codechefRating - x.codechefRating;
-  //     });
-
-  //     setCodingData(data);
-  //   } else if (searchCriteria === "CodeForces") {
-  //     let data = codingData;
-  //     data.sort(function (x, y) {
-  //       return y.codeforcesRating - x.codeforcesRating;
-  //     });
-
-  //     setCodingData(data);
-  //   }
-  //   setsearchCount(searchCount + 1);
-  // };
+  useEffect(() => {
+    axios.get("http://localhost:2000/users/getCodingStreak").then(({data})=>{
+      let datas = data;
+      datas.sort((a,b) => b-a);
+      setStreakData(datas);
+    })
+  }, []);
+ 
   useEffect(() => {
     if (searchCriteria === "Overall") {
       let data = codingData;
@@ -102,6 +72,8 @@ const Leaderboard = (props) => {
       });
 
       setCodingData(data);
+    }  else if(searchCriteria === "Streak"){
+      setCodingData(streakData)
     }
     setsearchCount(searchCount + 1);
   }, [searchCriteria]);
@@ -124,6 +96,7 @@ const Leaderboard = (props) => {
               <option value="CodeChef">CodeChef</option>
               <option value="LeetCode">LeetCode</option>
               <option value="CodeForces">CodeForces</option>
+              <option value="Streak">Streak</option>
             </select>
             {/* <button
               placeholder=""
@@ -151,6 +124,9 @@ const Leaderboard = (props) => {
                     searchCriteria === "CodeForces") && (
                     <th>CodeForces Rating</th>
                   )}
+                  {(searchCriteria === "Streak") && (
+                    <th>Maximum Streak</th>
+                  )}
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -175,6 +151,9 @@ const Leaderboard = (props) => {
                           searchCriteria === "CodeForces") && (
                           <td key={idx + "c"}>{val.codeforcesRating}</td>
                         )}
+                        {
+                          searchCriteria === "Streak" && <td key={idx + "d"}>{val.maximumDays}</td>
+                        }
                         <td key={idx + "6"}>
                           <button
                             key={idx + "7"}
